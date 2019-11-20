@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Listagem de Produtos";
+}
+<h2>@ViewBag.Title.</h2>
+
+<div class="row center-block">
+    <hr />
+    <a onclick="LimparModal(); return false;" data-toggle="modal" data-target="#modalProduto" title="Novo Registro">Novo produto</a>
+    <hr />
+    <table class="table" border="1" id="tabela">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codigo</th>
+                <th>Descrição</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@*Modal Produto*@
+<div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="modalProdutoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header laranja">
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="modalProdutoLabel">Produto</h3>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="SalvarProduto()">
+                    <div class="form-group">
+                        <label>Id</label>
+                        <input class="form-control" id="id" name="Id" readonly />
+                        <label>Codigo</label>
+                        <input class="form-control" id="codigo" placeholder="Codigo" name="Codigo" required type="number" />
+                        <label>Descrição</label>
+                        <input class="form-control" id="descricao" placeholder="Descrição" name="Descricao" required type="text" />
+                    </div>
+                    <button class="form-control laranja botaohover" type="submit">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*Modal Excluir Produto*@
+<div class="modal fade" id="modalExluir" tabindex="-1" role="dialog" aria-labelledby="modalExluirLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header laranja">
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="modalProdutoLabel"> Excluir Produto ID : <label id="Produto"></label></h3>
+            </div>
+            <form onsubmit="DeletarProduto()">
+                <input id="idProduto" hidden />
+                <div class="modal-body centro">
+                    <button class="btn-danger form-control confirmar" type="submit">Sim</button>
+                    <button data-dismiss="modal" aria-label="Close" class="btn-default form-control confirmar">Nao</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="../Scripts/jqueryTable.js"></script>
+    <script>
+        $(document).ready(function () {
+            Listar();
+        });
+    </script>
+}
