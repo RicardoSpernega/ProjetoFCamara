@@ -24,7 +24,7 @@ textarea {
 }
 
 .laranja {
-    background-color: #ff6a00;
+    background-color: #ef653c;
     color: white;
 }
 
@@ -55,4 +55,11 @@ textarea {
     -webkit-box-shadow: 3px 3px 1px #333;
     -moz-box-shadow: 3px 3px 1px #333;
     height: 500px !important;
+}
+
+.roxo{
+    background-color:#4b4fa1;
+}
+.fa{
+    margin-left:10px;
 }
